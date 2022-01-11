@@ -50,6 +50,9 @@ final class ItemIds{
 	public const BLAST_FURNACE = -196;
 	public const GRINDSTONE = -195;
 	public const LECTERN = -194;
+	public const LODESTONE_COMPASS = 601;
+    public const LODESTONE_BLOCK = 477;
+    public const LODESTONE_ITEM = -222;
 	public const DARKOAK_WALL_SIGN = -193;
 	public const DARKOAK_STANDING_SIGN = -192;
 	public const ACACIA_WALL_SIGN = -191;

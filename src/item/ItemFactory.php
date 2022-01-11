@@ -88,6 +88,7 @@ class ItemFactory{
 		$this->register(new Coal(new ItemIdentifier(ItemIds::COAL, 1), "Charcoal"));
 		$this->register(new CocoaBeans(new ItemIdentifier(ItemIds::DYE, 3), "Cocoa Beans"));
 		$this->register(new Compass(new ItemIdentifier(ItemIds::COMPASS, 0), "Compass"));
+		$this->register(new ItemBlock(new ItemIdentifier(ItemIds::LODESTONE_COMPASS, 0), VanillaBlocks::LODESTONE_COMPASS()));
 		$this->register(new CookedChicken(new ItemIdentifier(ItemIds::COOKED_CHICKEN, 0), "Cooked Chicken"));
 		$this->register(new CookedFish(new ItemIdentifier(ItemIds::COOKED_FISH, 0), "Cooked Fish"));
 		$this->register(new CookedMutton(new ItemIdentifier(ItemIds::COOKED_MUTTON, 0), "Cooked Mutton"));
@@ -317,7 +318,6 @@ class ItemFactory{
 		//TODO: minecraft:horsearmoriron
 		//TODO: minecraft:horsearmorleather
 		//TODO: minecraft:ice_bomb
-		//TODO: minecraft:kelp
 		//TODO: minecraft:lead
 		//TODO: minecraft:lingering_potion
 		//TODO: minecraft:map

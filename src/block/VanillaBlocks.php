@@ -349,6 +349,9 @@ use pocketmine\utils\CloningRegistryTrait;
  * @method static FenceGate JUNGLE_FENCE_GATE()
  * @method static Leaves JUNGLE_LEAVES()
  * @method static Log JUNGLE_LOG()
+ * @method static LodestoneBlock LODESTONE_BLOCK()
+ * @method static LodestoneCompass LODESTONE_COMPASS()
+ * @method static LodestoneItem LODESTONE_ITEM()
  * @method static Planks JUNGLE_PLANKS()
  * @method static WoodenPressurePlate JUNGLE_PRESSURE_PLATE()
  * @method static Sapling JUNGLE_SAPLING()
@@ -940,6 +943,8 @@ final class VanillaBlocks{
 		self::register("lime_glazed_terracotta", $factory->get(225, 2));
 		self::register("lit_pumpkin", $factory->get(91, 0));
 		self::register("loom", $factory->get(459, 0));
+		self::register("lodestone_compass", $factory->get(601, 0));
+		self::register("lodestone_block", $factory->get(477, 0));
 		self::register("magenta_glazed_terracotta", $factory->get(222, 2));
 		self::register("magma", $factory->get(213, 0));
 		self::register("material_reducer", $factory->get(238, 4));
