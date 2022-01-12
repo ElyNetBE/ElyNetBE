@@ -33,7 +33,7 @@ final class VersionInfo{
 	public const NAME = "ElyNetBE";
 	public const BASE_VERSION = "4.0.7";
 	public const IS_DEVELOPMENT_BUILD = true;
-	public const BUILD_CHANNEL = "stable";
+	public const BUILD_CHANNEL = "master";
 
 	private function __construct(){
 		//NOOP
