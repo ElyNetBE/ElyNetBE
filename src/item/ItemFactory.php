@@ -39,6 +39,7 @@ use pocketmine\entity\Location;
 use pocketmine\entity\Squid;
 use pocketmine\entity\Villager;
 use pocketmine\entity\Zombie;
+use pocketmine\inventory\CreativeInventory;
 use pocketmine\inventory\ArmorInventory;
 use pocketmine\math\Vector3;
 use pocketmine\nbt\NbtException;
@@ -183,6 +184,7 @@ class ItemFactory{
 		$this->register(new Item(new ItemIdentifier(ItemIds::SHULKER_SHELL, 0), "Shulker Shell"));
 		$this->register(new Item(new ItemIdentifier(ItemIds::SLIME_BALL, 0), "Slimeball"));
 		$this->register(new Item(new ItemIdentifier(ItemIds::SUGAR, 0), "Sugar"));
+		$this->register(new Item(new ItemIdentifier(ItemIds::SPYGLASS, 0), "Spyglass"));
 		$this->register(new Item(new ItemIdentifier(ItemIds::TURTLE_SHELL_PIECE, 0), "Scute"));
 		$this->register(new Item(new ItemIdentifier(ItemIds::WHEAT, 0), "Wheat"));
 		$this->register(new ItemBlock(new ItemIdentifier(ItemIds::ACACIA_DOOR, 0), VanillaBlocks::ACACIA_DOOR()));

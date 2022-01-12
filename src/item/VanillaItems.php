@@ -668,6 +668,7 @@ final class VanillaItems{
 		self::register("snowball", $factory->get(332));
 		self::register("spider_eye", $factory->get(375));
 		self::register("spruce_boat", $factory->get(333, 1));
+		self::register("spyglass", $factory->get(772));
 		self::register("squid_spawn_egg", $factory->get(383, 17));
 		self::register("steak", $factory->get(364));
 		self::register("stick", $factory->get(280));
