@@ -367,6 +367,7 @@ use pocketmine\utils\CloningRegistryTrait;
  * @method static Bed YELLOW_BED()
  * @method static Dye YELLOW_DYE()
  * @method static Skull ZOMBIE_HEAD()
+ * @method static Spyglass SPYGLASS()
  * @method static SpawnEgg ZOMBIE_SPAWN_EGG()
  */
 final class VanillaItems{
