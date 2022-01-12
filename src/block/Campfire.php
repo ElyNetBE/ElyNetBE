@@ -36,6 +36,7 @@ use pocketmine\event\entity\EntityDamageByBlockEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\item\FlintSteel;
 use pocketmine\item\Item;
+use pocketmine\item\ItemFactory;
 use pocketmine\item\PotionType;
 use pocketmine\item\Shovel;
 use pocketmine\item\VanillaItems;
