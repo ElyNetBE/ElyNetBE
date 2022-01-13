@@ -184,7 +184,6 @@ class ItemFactory{
 		$this->register(new Item(new ItemIdentifier(ItemIds::SHULKER_SHELL, 0), "Shulker Shell"));
 		$this->register(new Item(new ItemIdentifier(ItemIds::SLIME_BALL, 0), "Slimeball"));
 		$this->register(new Item(new ItemIdentifier(ItemIds::SUGAR, 0), "Sugar"));
-		$this->register(new Spyglass(new ItemIdentifier(ItemIds::SPYGLASS, 0), "Spyglass"));
 		$this->register(new Item(new ItemIdentifier(ItemIds::TURTLE_SHELL_PIECE, 0), "Scute"));
 		$this->register(new Item(new ItemIdentifier(ItemIds::WHEAT, 0), "Wheat"));
 		$this->register(new ItemBlock(new ItemIdentifier(ItemIds::ACACIA_DOOR, 0), VanillaBlocks::ACACIA_DOOR()));
@@ -258,6 +257,7 @@ class ItemFactory{
 		$this->register(new Stick(new ItemIdentifier(ItemIds::STICK, 0), "Stick"));
 		$this->register(new StringItem(new ItemIdentifier(ItemIds::STRING, 0), "String"));
 		$this->register(new SweetBerries(new ItemIdentifier(ItemIds::SWEET_BERRIES, 0), "Sweet Berries"));
+                $this->register(new Spyglass(new ItemIdentifier(ItemIds::SPYGLASS, 0), "Spyglass"));
 		$this->register(new Totem(new ItemIdentifier(ItemIds::TOTEM, 0), "Totem of Undying"));
 		$this->register(new WheatSeeds(new ItemIdentifier(ItemIds::WHEAT_SEEDS, 0), "Wheat Seeds"));
 		$this->register(new WritableBook(new ItemIdentifier(ItemIds::WRITABLE_BOOK, 0), "Book & Quill"));
