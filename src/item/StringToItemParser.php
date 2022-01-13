@@ -1261,7 +1261,6 @@ final class StringToItemParser extends StringToTParser{
 		$result->register("spider_eye", fn() => VanillaItems::SPIDER_EYE());
 		$result->register("splash_potion", fn() => VanillaItems::WATER_SPLASH_POTION());
 		$result->register("spruce_boat", fn() => VanillaItems::SPRUCE_BOAT());
-		$result->register("spyglass", fn() => VanillaItems::SPYGLASS());
 		$result->register("squid_spawn_egg", fn() => VanillaItems::SQUID_SPAWN_EGG());
 		$result->register("steak", fn() => VanillaItems::STEAK());
 		$result->register("stick", fn() => VanillaItems::STICK());
