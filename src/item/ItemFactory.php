@@ -100,6 +100,7 @@ class ItemFactory{
 		$this->register(new DriedKelp(new ItemIdentifier(ItemIds::DRIED_KELP, 0), "Dried Kelp"));
 		$this->register(new ItemBlock(new ItemIdentifier(ItemIds::KELP, 0), VanillaBlocks::KELP()));
 		$this->register(new Egg(new ItemIdentifier(ItemIds::EGG, 0), "Egg"));
+		$this->register(new EndCrystal(new ItemIdentifier(ItemIds::END_CRYSTAL, 0), "End Crystal"));
 		$this->register(new EnderPearl(new ItemIdentifier(ItemIds::ENDER_PEARL, 0), "Ender Pearl"));
 		$this->register(new ExperienceBottle(new ItemIdentifier(ItemIds::EXPERIENCE_BOTTLE, 0), "Bottle o' Enchanting"));
 		$this->register(new Fertilizer(new ItemIdentifier(ItemIds::DYE, 15), "Bone Meal"));
