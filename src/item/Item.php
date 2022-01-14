@@ -154,6 +154,10 @@ class Item implements \JsonSerializable{
 		$this->customName = $name;
 		return $this;
 	}
+	
+	public static function get(int $id, int $meta, int $amount) : Item{
+	    return ItemFactory::getInstance()->get($id, $meta, $amount);
+	}
 
 	/**
 	 * @return $this
