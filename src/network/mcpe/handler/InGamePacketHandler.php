@@ -39,6 +39,7 @@ use pocketmine\inventory\transaction\InventoryTransaction;
 use pocketmine\inventory\transaction\TransactionException;
 use pocketmine\inventory\transaction\TransactionValidationException;
 use pocketmine\item\VanillaItems;
+use pocketmine\math\Facing;
 use pocketmine\item\WritableBook;
 use pocketmine\item\WrittenBook;
 use pocketmine\math\Vector3;
@@ -104,6 +105,7 @@ use pocketmine\world\format\Chunk;
 use function array_push;
 use function base64_encode;
 use function count;
+use function in_array;
 use function fmod;
 use function implode;
 use function is_infinite;
@@ -360,6 +362,9 @@ class InGamePacketHandler extends PacketHandler{
 					return true;
 				}
 				//TODO: end hack for client spam bug
+				
+				self::validateFacing($data->getFace());
+
 
 				$blockPos = $data->getBlockPosition();
 				$vBlockPos = new Vector3($blockPos->getX(), $blockPos->getY(), $blockPos->getZ());
@@ -391,6 +396,16 @@ class InGamePacketHandler extends PacketHandler{
 
 		return false;
 	}
+	
+	 /**
+	 * @throws PacketHandlingException
+	 */
+	private static function validateFacing(int $facing) : void{
+		if(!in_array($facing, Facing::ALL, true)){
+			throw new PacketHandlingException("Invalid facing value $facing");
+		}
+	}
+
 
 	/**
 	 * Internal function used to execute rollbacks when an action fails on a block.
@@ -504,6 +519,7 @@ class InGamePacketHandler extends PacketHandler{
 
 		switch($packet->action){
 			case PlayerAction::START_BREAK:
+				self::validateFacing($packet->face);
 				if(!$this->player->attackBlock($pos, $packet->face)){
 					$this->onFailedBlockAction($pos, $packet->face);
 				}
@@ -554,6 +570,7 @@ class InGamePacketHandler extends PacketHandler{
 				}
 				return true;
 			case PlayerAction::CRACK_BREAK:
+				self::validateFacing($packet->face);
 				$this->player->continueBreakBlock($pos, $packet->face);
 				break;
 			case PlayerAction::START_SWIMMING:
