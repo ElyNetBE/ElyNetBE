@@ -103,7 +103,7 @@ class MainLogger extends \AttachableThreadedLogger implements \BufferedLogger{
 	}
 
 	public function warning($message){
-		$this->send($message, \LogLevel::WARNING, "WARNING", TextFormat::YELLOW);
+		$this->send($message, \LogLevel::WARNING, "WARNING", TextFormat::BLUE);
 	}
 
 	public function notice($message){
@@ -111,7 +111,7 @@ class MainLogger extends \AttachableThreadedLogger implements \BufferedLogger{
 	}
 
 	public function info($message){
-		$this->send($message, \LogLevel::INFO, "INFO", TextFormat::WHITE);
+		$this->send($message, \LogLevel::INFO, "INFO", TextFormat::AQUA);
 	}
 
 	public function debug($message, bool $force = false){
