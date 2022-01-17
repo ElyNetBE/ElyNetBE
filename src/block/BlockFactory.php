@@ -34,10 +34,8 @@ use pocketmine\block\tile\Bed as TileBed;
 use pocketmine\block\tile\Bell as TileBell;
 use pocketmine\block\tile\BlastFurnace as TileBlastFurnace;
 use pocketmine\block\tile\BrewingStand as TileBrewingStand;
-use pocketmine\block\tile\Campfire as TileCampfire;
 use pocketmine\block\tile\Chest as TileChest;
 use pocketmine\block\tile\Comparator as TileComparator;
-use pocketmine\block\tile\Conduit as TileConduit;
 use pocketmine\block\tile\DaylightSensor as TileDaylightSensor;
 use pocketmine\block\tile\EnchantTable as TileEnchantingTable;
 use pocketmine\block\tile\EnderChest as TileEnderChest;
@@ -45,8 +43,6 @@ use pocketmine\block\tile\FlowerPot as TileFlowerPot;
 use pocketmine\block\tile\Hopper as TileHopper;
 use pocketmine\block\tile\ItemFrame as TileItemFrame;
 use pocketmine\block\tile\Jukebox as TileJukebox;
-use pocketmine\block\tile\Lectern as TileLectern;
-use pocketmine\block\tile\Lodestone as TileLodestone;
 use pocketmine\block\tile\MonsterSpawner as TileMonsterSpawner;
 use pocketmine\block\tile\NormalFurnace as TileNormalFurnace;
 use pocketmine\block\tile\Note as TileNote;
@@ -119,7 +115,14 @@ class BlockFactory{
 		$this->registerAllMeta(new ActivatorRail(new BID(Ids::ACTIVATOR_RAIL, 0), "Activator Rail", $railBreakInfo));
 		$this->registerAllMeta(new Air(new BID(Ids::AIR, 0), "Air", BlockBreakInfo::indestructible(-1.0)));
 		$this->registerAllMeta(new Anvil(new BID(Ids::ANVIL, 0), "Anvil", new BlockBreakInfo(5.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6000.0)));
-		$this->registerAllMeta(new Bamboo(new BID(Ids::BAMBOO, 0), "Bamboo", new BlockBreakInfo(2.0 /* 1.0 in PC */, BlockToolType::AXE)));
+		$this->registerAllMeta(new Bamboo(new BID(Ids::BAMBOO, 0), "Bamboo", new class(2.0 /* 1.0 in PC */, BlockToolType::AXE) extends BlockBreakInfo{
+			public function getBreakTime(Item $item) : float{
+				if($item->getBlockToolType() === BlockToolType::SWORD){
+					return 0.0;
+				}
+				return parent::getBreakTime($item);
+			}
+		}));
 		$this->registerAllMeta(new BambooSapling(new BID(Ids::BAMBOO_SAPLING, 0), "Bamboo Sapling", BlockBreakInfo::instant()));
 
 		$bannerBreakInfo = new BlockBreakInfo(1.0, BlockToolType::AXE);
@@ -149,7 +152,6 @@ class BlockFactory{
 
 		$chestBreakInfo = new BlockBreakInfo(2.5, BlockToolType::AXE);
 		$this->registerAllMeta(new Chest(new BID(Ids::CHEST, 0, null, TileChest::class), "Chest", $chestBreakInfo));
-		$this->registerAllMeta(new Campfire(new BID(Ids::CAMPFIRE, 0, ItemIds::CAMPFIRE, TileCampfire::class), "Campfire", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10)));
 		$this->registerAllMeta(new Clay(new BID(Ids::CLAY_BLOCK, 0), "Clay Block", new BlockBreakInfo(0.6, BlockToolType::SHOVEL)));
 		$this->registerAllMeta(new Coal(new BID(Ids::COAL_BLOCK, 0), "Coal Block", new BlockBreakInfo(5.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 30.0)));
 		$this->registerAllMeta(new CoalOre(new BID(Ids::COAL_ORE, 0), "Coal Ore", new BlockBreakInfo(3.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
@@ -181,8 +183,6 @@ class BlockFactory{
 		);
 		$this->registerAllMeta(new DragonEgg(new BID(Ids::DRAGON_EGG, 0), "Dragon Egg", new BlockBreakInfo(3.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
 		$this->registerAllMeta(new DriedKelp(new BID(Ids::DRIED_KELP_BLOCK, 0), "Dried Kelp Block", new BlockBreakInfo(0.5, BlockToolType::NONE, 0, 12.5)));
-		$this->registerAllMeta(new Kelp(new BID(Ids::KELP, 0, ItemIds::KELP), "Kelp", BlockBreakInfo::instant()));
-		$this->registerAllMeta(new Conduit(new BID(Ids::CONDUIT, 0, ItemIds::CONDUIT, TileConduit::class), "Conduit", new BlockBreakInfo(3, BlockToolType::PICKAXE)));
 		$this->registerAllMeta(new Opaque(new BID(Ids::EMERALD_BLOCK, 0), "Emerald Block", new BlockBreakInfo(5.0, BlockToolType::PICKAXE, ToolTier::IRON()->getHarvestLevel(), 30.0)));
 		$this->registerAllMeta(new EmeraldOre(new BID(Ids::EMERALD_ORE, 0), "Emerald Ore", new BlockBreakInfo(3.0, BlockToolType::PICKAXE, ToolTier::IRON()->getHarvestLevel())));
 		$this->registerAllMeta(new EnchantingTable(new BID(Ids::ENCHANTING_TABLE, 0, null, TileEnchantingTable::class), "Enchanting Table", new BlockBreakInfo(5.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6000.0)));
@@ -260,7 +260,6 @@ class BlockFactory{
 		$this->registerAllMeta(new Opaque(new BID(Ids::LAPIS_BLOCK, 0), "Lapis Lazuli Block", new BlockBreakInfo(3.0, BlockToolType::PICKAXE, ToolTier::STONE()->getHarvestLevel())));
 		$this->registerAllMeta(new LapisOre(new BID(Ids::LAPIS_ORE, 0), "Lapis Lazuli Ore", new BlockBreakInfo(3.0, BlockToolType::PICKAXE, ToolTier::STONE()->getHarvestLevel())));
 		$this->registerAllMeta(new Lava(new BIDFlattened(Ids::FLOWING_LAVA, [Ids::STILL_LAVA], 0), "Lava", BlockBreakInfo::indestructible(500.0)));
-		$this->registerAllMeta(new Lectern(new BID(Ids::LECTERN, 0, ItemIds::LECTERN, TileLectern::class), "Lectern", new BlockBreakInfo(2.5, BlockToolType::AXE)));
 		$this->registerAllMeta(new Lever(new BID(Ids::LEVER, 0), "Lever", new BlockBreakInfo(0.5)));
 		$this->registerAllMeta(new Loom(new BID(Ids::LOOM, 0), "Loom", new BlockBreakInfo(2.5, BlockToolType::AXE)));
 		$this->registerAllMeta(new Magma(new BID(Ids::MAGMA, 0), "Magma Block", new BlockBreakInfo(0.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
@@ -278,7 +277,7 @@ class BlockFactory{
 		$this->registerAllMeta(new NetherPortal(new BID(Ids::PORTAL, 0), "Nether Portal", BlockBreakInfo::indestructible(0.0)));
 		$this->registerAllMeta(new NetherQuartzOre(new BID(Ids::NETHER_QUARTZ_ORE, 0), "Nether Quartz Ore", new BlockBreakInfo(3.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
 		$this->registerAllMeta(new NetherReactor(new BID(Ids::NETHERREACTOR, 0), "Nether Reactor Core", new BlockBreakInfo(3.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
-		$this->registerAllMeta(new Opaque(new BID(Ids::NETHER_WART_BLOCK, 0), "Nether Wart Block", new BlockBreakInfo(1.0)));
+		$this->registerAllMeta(new Opaque(new BID(Ids::NETHER_WART_BLOCK, 0), "Nether Wart Block", new BlockBreakInfo(1.0, BlockToolType::HOE)));
 		$this->registerAllMeta(new NetherWartPlant(new BID(Ids::NETHER_WART_PLANT, 0, ItemIds::NETHER_WART), "Nether Wart", BlockBreakInfo::instant()));
 		$this->registerAllMeta(new Netherrack(new BID(Ids::NETHERRACK, 0), "Netherrack", new BlockBreakInfo(0.4, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
 		$this->registerAllMeta(new Note(new BID(Ids::NOTEBLOCK, 0, null, TileNote::class), "Note Block", new BlockBreakInfo(0.8, BlockToolType::AXE)));
@@ -299,7 +298,7 @@ class BlockFactory{
 		$this->registerAllMeta(new Stair(new BID(Ids::PRISMARINE_STAIRS, 0), "Prismarine Stairs", $prismarineBreakInfo));
 
 		$pumpkinBreakInfo = new BlockBreakInfo(1.0, BlockToolType::AXE);
-		$this->registerAllMeta(new Pumpkin(new BID(Ids::PUMPKIN, 0), "Pumpkin", $pumpkinBreakInfo));
+		$this->registerAllMeta($pumpkin = new Opaque(new BID(Ids::PUMPKIN, 0), "Pumpkin", $pumpkinBreakInfo));
 		$this->registerAllMeta(new CarvedPumpkin(new BID(Ids::CARVED_PUMPKIN, 0), "Carved Pumpkin", $pumpkinBreakInfo));
 		$this->registerAllMeta(new LitPumpkin(new BID(Ids::JACK_O_LANTERN, 0), "Jack o'Lantern", $pumpkinBreakInfo));
 
@@ -373,7 +372,7 @@ class BlockFactory{
 			$crackedStoneBrick = new Opaque(new BID(Ids::STONEBRICK, Meta::STONE_BRICK_CRACKED), "Cracked Stone Bricks", $stoneBreakInfo),
 			$chiseledStoneBrick = new Opaque(new BID(Ids::STONEBRICK, Meta::STONE_BRICK_CHISELED), "Chiseled Stone Bricks", $stoneBreakInfo)
 		);
-		$infestedStoneBreakInfo = new BlockBreakInfo(0.75);
+		$infestedStoneBreakInfo = new BlockBreakInfo(0.75, BlockToolType::PICKAXE);
 		$this->registerAllMeta(
 			new InfestedStone(new BID(Ids::MONSTER_EGG, Meta::INFESTED_STONE), "Infested Stone", $infestedStoneBreakInfo, $stone),
 			new InfestedStone(new BID(Ids::MONSTER_EGG, Meta::INFESTED_STONE_BRICK), "Infested Stone Brick", $infestedStoneBreakInfo, $stoneBrick),
@@ -449,7 +448,7 @@ class BlockFactory{
 		$this->registerAllMeta(new UnderwaterTorch(new BID(Ids::UNDERWATER_TORCH, 0), "Underwater Torch", BlockBreakInfo::instant()));
 		$this->registerAllMeta(new Vine(new BID(Ids::VINE, 0), "Vines", new BlockBreakInfo(0.2, BlockToolType::AXE)));
 		$this->registerAllMeta(new Water(new BIDFlattened(Ids::FLOWING_WATER, [Ids::STILL_WATER], 0), "Water", BlockBreakInfo::indestructible(500.0)));
-		$this->registerAllMeta(new WaterLily(new BID(Ids::LILY_PAD, 0), "Lily Pad", new BlockBreakInfo(0.6)));
+		$this->registerAllMeta(new WaterLily(new BID(Ids::LILY_PAD, 0), "Lily Pad", BlockBreakInfo::instant()));
 
 		$weightedPressurePlateBreakInfo = new BlockBreakInfo(0.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel());
 		$this->registerAllMeta(new WeightedPressurePlateHeavy(new BID(Ids::HEAVY_WEIGHTED_PRESSURE_PLATE, 0), "Weighted Pressure Plate Heavy", $weightedPressurePlateBreakInfo));
@@ -457,7 +456,14 @@ class BlockFactory{
 		$this->registerAllMeta(new Wheat(new BID(Ids::WHEAT_BLOCK, 0), "Wheat Block", BlockBreakInfo::instant()));
 
 		$planksBreakInfo = new BlockBreakInfo(2.0, BlockToolType::AXE, 0, 15.0);
-		$leavesBreakInfo = new BlockBreakInfo(0.2, BlockToolType::SHEARS);
+		$leavesBreakInfo = new class(0.2, BlockToolType::HOE) extends BlockBreakInfo{
+			public function getBreakTime(Item $item) : float{
+				if($item->getBlockToolType() === BlockToolType::SHEARS){
+					return 0.0;
+				}
+				return parent::getBreakTime($item);
+			}
+		};
 		$signBreakInfo = new BlockBreakInfo(1.0, BlockToolType::AXE);
 		$logBreakInfo = new BlockBreakInfo(2.0, BlockToolType::AXE);
 		$woodenDoorBreakInfo = new BlockBreakInfo(3.0, BlockToolType::AXE, 0, 15.0);
@@ -603,6 +609,7 @@ class BlockFactory{
 
 		//region --- auto-generated TODOs for bedrock-1.11.0 ---
 		//TODO: minecraft:bubble_column
+		//TODO: minecraft:campfire
 		//TODO: minecraft:cartography_table
 		//TODO: minecraft:cauldron
 		//TODO: minecraft:chain_command_block
@@ -617,9 +624,9 @@ class BlockFactory{
 		//TODO: minecraft:end_portal
 		//TODO: minecraft:grindstone
 		//TODO: minecraft:jigsaw
-
+		//TODO: minecraft:kelp
 		//TODO: minecraft:lava_cauldron
-
+		//TODO: minecraft:lectern
 		//TODO: minecraft:movingBlock
 		//TODO: minecraft:observer
 		//TODO: minecraft:piston
