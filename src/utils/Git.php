@@ -56,7 +56,7 @@ final class Git{
 		$dirty = false;
 		$detectedHash = self::getRepositoryState($dir, $dirty);
 		if($detectedHash !== null){
-			return $detectedHash . ($dirty ? "-dirty" : "");
+			return $detectedHash . ($dirty ? "-stable" : "");
 		}
 		return str_repeat("00", 20);
 	}
