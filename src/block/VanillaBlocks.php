@@ -376,7 +376,7 @@ use pocketmine\utils\CloningRegistryTrait;
  * @method static DoublePlant LILAC()
  * @method static Flower LILY_OF_THE_VALLEY()
  * @method static WaterLily LILY_PAD()
- * @method static GlazedTerracotta LIME_GLAZED_TERRACOTTA()
+ * @method static GlazedTerracotta LIME_GLAZED_TERRACOTTA() 
  * @method static LitPumpkin LIT_PUMPKIN()
  * @method static Loom LOOM()
  * @method static GlazedTerracotta MAGENTA_GLAZED_TERRACOTTA()
@@ -533,6 +533,7 @@ use pocketmine\utils\CloningRegistryTrait;
  * @method static StainedHardenedGlass STAINED_HARDENED_GLASS()
  * @method static StainedHardenedGlassPane STAINED_HARDENED_GLASS_PANE()
  * @method static Opaque STONE()
+ * @method static Stonecutter STONECUTTER()
  * @method static Opaque STONE_BRICKS()
  * @method static Slab STONE_BRICK_SLAB()
  * @method static Stair STONE_BRICK_STAIRS()
@@ -1107,6 +1108,7 @@ final class VanillaBlocks{
 		self::register("stone_pressure_plate", $factory->get(70, 0));
 		self::register("stone_slab", $factory->get(421, 2));
 		self::register("stone_stairs", $factory->get(435, 0));
+		self::register("stonecutter", $factory->get(452, 0));
 		self::register("stripped_acacia_log", $factory->get(263, 0));
 		self::register("stripped_acacia_wood", $factory->get(467, 12));
 		self::register("stripped_birch_log", $factory->get(261, 0));
