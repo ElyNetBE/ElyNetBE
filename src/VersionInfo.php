@@ -32,8 +32,8 @@ use function str_repeat;
 final class VersionInfo{
 	public const NAME = "ElyNetBE";
 	public const BASE_VERSION = "4.0.8";
-	public const IS_DEVELOPMENT_BUILD = true;
-	public const BUILD_CHANNEL = "master";
+	public const IS_DEVELOPMENT_BUILD = false;
+	public const BUILD_CHANNEL = "stable";
 
 	private function __construct(){
 		//NOOP
