@@ -863,7 +863,7 @@ class NetworkSession{
 				0,
 				$aliasObj,
 				[
-					[CommandParameter::standard("args", AvailableCommandsPacket::ARG_TYPE_RAWTEXT, 0, true)]
+					$command->getCommandParameter()
 				]
 			);
 
