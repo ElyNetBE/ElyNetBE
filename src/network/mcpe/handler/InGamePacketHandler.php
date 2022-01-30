@@ -89,6 +89,8 @@ use pocketmine\network\mcpe\protocol\SpawnExperienceOrbPacket;
 use pocketmine\network\mcpe\protocol\SubClientLoginPacket;
 use pocketmine\network\mcpe\protocol\TextPacket;
 use pocketmine\network\mcpe\protocol\types\ActorEvent;
+use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
+use pocketmine\network\mcpe\protocol\types\entity\FloatMetadataProperty;
 use pocketmine\network\mcpe\protocol\types\inventory\ContainerIds;
 use pocketmine\network\mcpe\protocol\types\inventory\MismatchTransactionData;
 use pocketmine\network\mcpe\protocol\types\inventory\NetworkInventoryAction;
@@ -581,7 +583,9 @@ class InGamePacketHandler extends PacketHandler{
 			case PlayerAction::STOP_SWIMMING:
 				if(!$this->player->toggleSwim(false)){
 					$this->player->sendData([$this->player]);
-				}
+				} else {
+                    $this->player->sendData([$this->player], [EntityMetadataProperties::BOUNDING_BOX_HEIGHT => new FloatMetadataProperty($this->player->getSize()->getHeight())]);
+                }
 				return true;
 			case PlayerAction::INTERACT_BLOCK: //TODO: ignored (for now)
 				break;
