@@ -26,6 +26,8 @@ namespace pocketmine\command\defaults;
 use pocketmine\command\CommandSender;
 use pocketmine\command\utils\InvalidCommandSyntaxException;
 use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\network\mcpe\protocol\types\command\CommandEnum;
+use pocketmine\network\mcpe\protocol\types\command\CommandParameter;
 use pocketmine\permission\BanEntry;
 use pocketmine\permission\DefaultPermissionNames;
 use function array_map;
@@ -81,4 +83,9 @@ class BanListCommand extends VanillaCommand{
 
 		return true;
 	}
+
+    public function getCommandParameter(): array
+    {
+        return [CommandParameter::enum("option", new CommandEnum("option", ["ips", "players"]), 0, true)];
+    }
 }
