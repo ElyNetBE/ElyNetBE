@@ -31,6 +31,9 @@ use pocketmine\permission\DefaultPermissionNames;
 use pocketmine\player\GameMode;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
+use pocketmine\network\mcpe\protocol\types\command\CommandParameter;
+use pocketmine\network\mcpe\protocol\AvailableCommandsPacket;
+use pocketmine\network\mcpe\protocol\types\command\CommandEnum;
 use function count;
 
 class GamemodeCommand extends VanillaCommand{
@@ -86,4 +89,18 @@ class GamemodeCommand extends VanillaCommand{
 
 		return true;
 	}
+
+    public function getCommandParameter(): array
+    {
+        $parameter = new CommandParameter();
+        $parameter->paramName = "gamemode";
+        $parameter->paramType = AvailableCommandsPacket::ARG_TYPE_STRING;
+        $parameter->isOptional = false;
+        $parameter->enum = new CommandEnum("gamemode", [
+            "creative", "survival", "adventure"
+        ]);
+        $parameter->flags = 0;
+        return 	[$parameter, CommandParameter::standard("player", AvailableCommandsPacket::ARG_TYPE_TARGET, 0, true)
+        ];
+    }
 }

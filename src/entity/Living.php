@@ -120,6 +120,8 @@ abstract class Living extends Entity{
 	protected $gliding = false;
 	/** @var bool */
 	protected $swimming = false;
+    /** @var EntitySizeInfo */
+    protected $oldsize;
 
 	abstract public function getName() : string;
 
@@ -260,12 +262,13 @@ abstract class Living extends Entity{
 
 	private function recalculateSize() : void{
 		$size = $this->getInitialSizeInfo();
+        $width = $size->getWidth();
 		if($this->isSwimming() || $this->isGliding()){
-			$width = $size->getWidth();
 			//we don't actually know an appropriate eye height for a swimming mob, but 2/3 should be good enough.
+            $this->oldsize = $size;
 			$this->setSize((new EntitySizeInfo($width, $width, $width * 2 / 3))->scale($this->getScale()));
 		}else{
-			$this->setSize($size->scale($this->getScale()));
+			$this->setSize($this->oldsize ?? new EntitySizeInfo(1.8, $width));
 		}
 	}
 	

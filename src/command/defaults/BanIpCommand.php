@@ -27,6 +27,8 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\utils\InvalidCommandSyntaxException;
 use pocketmine\lang\KnownTranslationFactory;
+use pocketmine\network\mcpe\protocol\AvailableCommandsPacket;
+use pocketmine\network\mcpe\protocol\types\command\CommandParameter;
 use pocketmine\permission\DefaultPermissionNames;
 use pocketmine\player\Player;
 use function array_shift;
@@ -88,4 +90,9 @@ class BanIpCommand extends VanillaCommand{
 
 		$sender->getServer()->getNetwork()->blockAddress($ip, -1);
 	}
+
+    public function getCommandParameter(): array
+    {
+        return [CommandParameter::standard("address|name", AvailableCommandsPacket::ARG_TYPE_RAWTEXT, 1, true), CommandParameter::standard("reason", AvailableCommandsPacket::ARG_TYPE_RAWTEXT, 1, true)];
+    }
 }

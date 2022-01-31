@@ -260,6 +260,7 @@ class ItemFactory{
 		$this->register(new SweetBerries(new ItemIdentifier(ItemIds::SWEET_BERRIES, 0), "Sweet Berries"));
                 $this->register(new Spyglass(new ItemIdentifier(ItemIds::SPYGLASS, 0), "Spyglass"));
 		$this->register(new Totem(new ItemIdentifier(ItemIds::TOTEM, 0), "Totem of Undying"));
+		$this->register(new Trident(new ItemIdentifier(ItemIds::TRIDENT, 0), "Trident"));
 		$this->register(new WheatSeeds(new ItemIdentifier(ItemIds::WHEAT_SEEDS, 0), "Wheat Seeds"));
 		$this->register(new WritableBook(new ItemIdentifier(ItemIds::WRITABLE_BOOK, 0), "Book & Quill"));
 		$this->register(new WrittenBook(new ItemIdentifier(ItemIds::WRITTEN_BOOK, 0), "Written Book"));
@@ -334,7 +335,6 @@ class ItemFactory{
 		//TODO: minecraft:sparkler
 		//TODO: minecraft:spawn_egg
 		//TODO: minecraft:tnt_minecart
-		//TODO: minecraft:trident
 		//TODO: minecraft:turtle_helmet
 		//endregion
 	}

@@ -30,6 +30,8 @@ use pocketmine\command\utils\CommandException;
 use pocketmine\console\ConsoleCommandSender;
 use pocketmine\lang\KnownTranslationFactory;
 use pocketmine\lang\Translatable;
+use pocketmine\network\mcpe\protocol\AvailableCommandsPacket;
+use pocketmine\network\mcpe\protocol\types\command\CommandParameter;
 use pocketmine\permission\PermissionManager;
 use pocketmine\Server;
 use pocketmine\timings\Timings;
@@ -247,6 +249,13 @@ abstract class Command{
 			}
 		}
 	}
+
+    /*
+     * @return CommandParameter[]
+     */
+    public function getCommandParameter(): array{
+        return [CommandParameter::standard("args", AvailableCommandsPacket::ARG_TYPE_RAWTEXT, 0, true)];
+    }
 
 	public function __toString() : string{
 		return $this->name;
