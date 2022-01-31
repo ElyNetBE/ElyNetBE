@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "511a8b6643db89a436830a45b586ccb8",
+    "content-hash": "1f0fc92282a395ef6c076f5d785eca27",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -122,6 +122,32 @@
             "time": "2021-08-15T20:50:18+00:00"
         },
         {
+            "name": "elynetbe/bedrock-data",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElyNetBE/BedrockData.git",
+                "reference": "27fd03eb83e917d5ec6e596818243e51ceb0f697"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElyNetBE/BedrockData/zipball/27fd03eb83e917d5ec6e596818243e51ceb0f697",
+                "reference": "27fd03eb83e917d5ec6e596818243e51ceb0f697",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "description": "Blobs of data generated from Minecraft: Bedrock Edition, used by PocketMine-MP",
+            "support": {
+                "issues": "https://github.com/pmmp/BedrockData/issues",
+                "source": "https://github.com/pmmp/BedrockData/tree/bedrock-1.18.0"
+            },
+            "time": "2021-11-30T18:30:46+00:00"
+        },
+        {
             "name": "fgrosse/phpasn1",
             "version": "v2.4.0",
             "source": {
@@ -195,32 +221,6 @@
                 "source": "https://github.com/fgrosse/PHPASN1/tree/v2.4.0"
             },
             "time": "2021-12-11T12:41:06+00:00"
-        },
-        {
-            "name": "nethergamesmc/bedrock-data",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DavyCraft648/BedrockData.git",
-                "reference": "f3abc6810abb1df5ce39c4e6f859d21bae3738ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DavyCraft648/BedrockData/zipball/f3abc6810abb1df5ce39c4e6f859d21bae3738ad",
-                "reference": "f3abc6810abb1df5ce39c4e6f859d21bae3738ad",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0"
-            ],
-            "description": "Blobs of data generated from Minecraft: Bedrock Edition, used by PocketMine-MP",
-            "support": {
-                "issues": "https://github.com/pmmp/BedrockData/issues",
-                "source": "https://github.com/pmmp/BedrockData/tree/bedrock-1.18.0"
-            },
-            "time": "2021-11-30T18:30:46+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -3507,7 +3507,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "nethergamesmc/bedrock-data": 20
+        "elynetbe/bedrock-data": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
