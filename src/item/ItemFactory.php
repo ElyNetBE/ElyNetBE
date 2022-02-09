@@ -246,6 +246,7 @@ class ItemFactory{
 		$this->register(new Redstone(new ItemIdentifier(ItemIds::REDSTONE, 0), "Redstone"));
 		$this->register(new RottenFlesh(new ItemIdentifier(ItemIds::ROTTEN_FLESH, 0), "Rotten Flesh"));
 		$this->register(new Shears(new ItemIdentifier(ItemIds::SHEARS, 0), "Shears"));
+		$this->register(new Shield(new ItemIdentifier(ItemIds::SHIELD, 0), "Shield"));
 		$this->register(new ItemBlockWallOrFloor(new ItemIdentifier(ItemIds::SIGN, 0), VanillaBlocks::OAK_SIGN(), VanillaBlocks::OAK_WALL_SIGN()));
 		$this->register(new ItemBlockWallOrFloor(new ItemIdentifier(ItemIds::SPRUCE_SIGN, 0), VanillaBlocks::SPRUCE_SIGN(), VanillaBlocks::SPRUCE_WALL_SIGN()));
 		$this->register(new ItemBlockWallOrFloor(new ItemIdentifier(ItemIds::BIRCH_SIGN, 0), VanillaBlocks::BIRCH_SIGN(), VanillaBlocks::BIRCH_WALL_SIGN()));
@@ -258,7 +259,7 @@ class ItemFactory{
 		$this->register(new Stick(new ItemIdentifier(ItemIds::STICK, 0), "Stick"));
 		$this->register(new StringItem(new ItemIdentifier(ItemIds::STRING, 0), "String"));
 		$this->register(new SweetBerries(new ItemIdentifier(ItemIds::SWEET_BERRIES, 0), "Sweet Berries"));
-                $this->register(new Spyglass(new ItemIdentifier(ItemIds::SPYGLASS, 0), "Spyglass"));
+        $this->register(new Spyglass(new ItemIdentifier(ItemIds::SPYGLASS, 0), "Spyglass"));
 		$this->register(new Totem(new ItemIdentifier(ItemIds::TOTEM, 0), "Totem of Undying"));
 		$this->register(new Trident(new ItemIdentifier(ItemIds::TRIDENT, 0), "Trident"));
 		$this->register(new WheatSeeds(new ItemIdentifier(ItemIds::WHEAT_SEEDS, 0), "Wheat Seeds"));
