@@ -127,12 +127,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElyNetBE/BedrockData.git",
-                "reference": "27fd03eb83e917d5ec6e596818243e51ceb0f697"
+                "reference": "6e7d24ca22949a33640c567001dca28493f1b3a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElyNetBE/BedrockData/zipball/27fd03eb83e917d5ec6e596818243e51ceb0f697",
-                "reference": "27fd03eb83e917d5ec6e596818243e51ceb0f697",
+                "url": "https://api.github.com/repos/ElyNetBE/BedrockData/zipball/6e7d24ca22949a33640c567001dca28493f1b3a6",
+                "reference": "6e7d24ca22949a33640c567001dca28493f1b3a6",
                 "shasum": ""
             },
             "type": "library",
