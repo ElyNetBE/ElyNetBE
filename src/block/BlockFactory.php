@@ -133,6 +133,7 @@ class BlockFactory{
 
 		$this->registerAllMeta(new Beetroot(new BID(Ids::BEETROOT_BLOCK, 0), "Beetroot Block", BlockBreakInfo::instant()));
 		$this->registerAllMeta(new Bell(new BID(Ids::BELL, 0, null, TileBell::class), "Bell", new BlockBreakInfo(5.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
+		$this->registerAllMeta(new Beehive(new BID(Ids::BEEHIVE, 0, ItemIds::BEEHIVE), "Beehive", new BlockBreakInfo(0.6, BlockToolType::AXE, ToolTier::STONE()->getHarvestLevel(), 0.6)));
 		$this->registerAllMeta(new BlueIce(new BID(Ids::BLUE_ICE, 0), "Blue Ice", new BlockBreakInfo(2.8, BlockToolType::PICKAXE)));
 		$this->registerAllMeta(new BoneBlock(new BID(Ids::BONE_BLOCK, 0), "Bone Block", new BlockBreakInfo(2.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
 		$this->registerAllMeta(new Bookshelf(new BID(Ids::BOOKSHELF, 0), "Bookshelf", new BlockBreakInfo(1.5, BlockToolType::AXE)));
@@ -445,6 +446,7 @@ class BlockFactory{
 			new Torch(new BID(Ids::COLORED_TORCH_RG, 8), "Green Torch", BlockBreakInfo::instant())
 		);
 		$this->registerAllMeta(new Torch(new BID(Ids::TORCH, 0), "Torch", BlockBreakInfo::instant()));
+		$this->registerAllMeta(new SoulTorch(new BID(Ids::SOUL_TORCH_BLOCK, 0, ItemIds::SOUL_TORCH_ITEM), "Soul Torch", BlockBreakInfo::instant()));
 		$this->registerAllMeta(new TrappedChest(new BID(Ids::TRAPPED_CHEST, 0, null, TileChest::class), "Trapped Chest", $chestBreakInfo));
 		$this->registerAllMeta(new Tripwire(new BID(Ids::TRIPWIRE, 0, ItemIds::STRING), "Tripwire", BlockBreakInfo::instant()));
 		$this->registerAllMeta(new TripwireHook(new BID(Ids::TRIPWIRE_HOOK, 0), "Tripwire Hook", BlockBreakInfo::instant()));

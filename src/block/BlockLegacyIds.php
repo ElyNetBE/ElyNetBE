@@ -497,5 +497,10 @@ final class BlockLegacyIds{
 	public const WOOD = 467;
 	public const COMPOSTER = 468;
 	public const LIT_BLAST_FURNACE = 469;
+	
+	public const BEE_NEST = 473;
+	public const BEEHIVE = 474;
+	
+	public const SOUL_TORCH_BLOCK = 523;
 
 }

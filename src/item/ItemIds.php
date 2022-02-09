@@ -28,7 +28,12 @@ final class ItemIds{
 	private function __construct(){
 		//NOOP
 	}
-
+	
+	public const SOUL_TORCH_ITEM = -268;
+	
+    public const BEEHIVE = -219;
+    public const BEE_NEST = -218;
+	
 	public const LIT_BLAST_FURNACE = -214;
 	public const COMPOSTER = -213;
 	public const WOOD = -212;
@@ -735,7 +740,9 @@ final class ItemIds{
 	public const RECORD_WAIT = 511;
 
 	public const SHIELD = 513;
-
+    
+	public const SOUL_TORCH_BLOCK = 523;
+	
 	public const CAMPFIRE_ITEM = 720;
 	
 	public const SPYGLASS = 772;

@@ -108,6 +108,7 @@ final class StringToItemParser extends StringToTParser{
 		$result->registerBlock("beetroot_block", fn() => VanillaBlocks::BEETROOTS());
 		$result->registerBlock("beetroots", fn() => VanillaBlocks::BEETROOTS());
 		$result->registerBlock("bell", fn() => VanillaBlocks::BELL());
+		$result->registerBlock("beehive", fn() => VanillaBlocks::BEEHIVE());
 		$result->registerBlock("birch_button", fn() => VanillaBlocks::BIRCH_BUTTON());
 		$result->registerBlock("birch_door", fn() => VanillaBlocks::BIRCH_DOOR());
 		$result->registerBlock("birch_door_block", fn() => VanillaBlocks::BIRCH_DOOR());
